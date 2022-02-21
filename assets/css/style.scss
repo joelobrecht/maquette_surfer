@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+html {
+    font-size: 16px;
+    /* Nombre d'or */
+}
+
+body {
+    font-family: "Courier New", Courier, monospace;
+}
+
+/*# sourceMappingURL=style.css.map */
+
+h2 {
+    font-size: 2rem;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main {
+    section {
+        h2 {}
+
+        &::hover
+        /* équivalent @ $this */
+    }
+}
