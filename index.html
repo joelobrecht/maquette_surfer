@@ -6,8 +6,11 @@
 
     <meta charset="utf-8">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&amp;family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.min.css">
@@ -45,12 +48,12 @@
             </ul>
         </nav>
         <section>
-            <h1>Titre</h1>
+            <h1><a href="index.html">Titre</a></h1>
             <h3>Description du site</h3>
         </section>
     </header>
     <main id="container">
-        <section class="white" id="projet">
+        <section class="light" id="projet">
             <h2>Mon projet</h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque egestas quam in ligula vestibulum elementum. In ut velit nec eros blandit finibus sit amet ullamcorper magna. In gravida ex in diam aliquet tempor. Mauris pharetra placerat consectetur. Proin mattis tellus non libero tristique. Duis mi eros.
@@ -60,7 +63,7 @@
                 </a>
             </p>
         </section>
-        <section class="grey" id="equipe">
+        <section class="shadowed" id="equipe">
             <h2>Mon équipe</h2>
             <div class="conteneur-flexbox">
                 <div class="flex">
@@ -109,42 +112,46 @@
                 </div>
             </div>
         </section>
-        <section class="black" id="temoignages">
+        <section class="dark" id="temoignages">
+            <img src="assets/images/road.jpg" alt="Image d'une route">
             <aside class="zone-right">
                 <h2>Témoignages</h2>
                 <blockquote>
                     <span class="quote">"</span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque egestas quam in ligula vestibulum elementum. In ut velit nec eros blandit finibus sit amet ullamcorper magna. In gravida ex in diam aliquet tempor. Mauris pharetra placerat consectetur.
-                    <span class="bold">Pierre Ceval</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque egestas quam in ligula vestibulum elementum. In ut velit nec eros blandit finibus sit amet ullamcorper magna. In gravida ex in diam aliquet tempor. Mauris pharetra placerat consectetur.</p>
+                    <em>Pierre Ceval</em>
                     <span class="quote">"</span>
                 </blockquote>
             </aside>
-            <aside class="zone-left">
-                <img src="assets/images/road.jpg" alt="Image d'une route">
-            </aside>
         </section>
-        <section class="grey" id="contact">
+        <section class="shadowed" id="contact">
             <h2>Contact</h2>
             <form>
-                <label class="name_label" for="nom">Nom</label>
-                <input class="name_input" type="text" id="nom">
-                <label class="mail_label" for="prenom">Email</label>
-                <input class="mail_input" type="email" id="mail">
-                <label class="message_label" for="message">Message</label>
-                <textarea class="textarea"></textarea>
+                <div class="name_wrapper">
+                    <label class="name_label" for="nom">Nom</label>
+                    <input class="name_input" type="text" id="nom"></div>
+                <div class="mail_wrapper">
+                    <label class="mail_label" for="mail">Email</label>
+                    <input class="mail_input" type="email" id="mail"></div>
+                <div class="message_wrapper">
+                    <label class="message_label" for="message">Message</label>
+                    <textarea class="textarea" id="message"></textarea></div>
                 <button type="submit">Soumettre</button>
             </form>
+
+        </section>
+    </main>
+    <footer class="shadowed">
+        <div class="contact">
             <div class="tel_wrap phone">
                 <i class="fas fa-phone-alt"></i>
                 <a href="tel:0123456789" title="Contact par téléphone">01.23.45.67.89</a>
             </div>
-            <div class="address-wrap">
+            <div class="address_wrap">
                 <i class="fas fa-home"></i>
                 <address>12 rue du général<br>87000 Limoges</address>
             </div>
-        </section>
-    </main>
-    <footer class="grey">
+        </div>
         <nav>
             <ul>
                 <li>

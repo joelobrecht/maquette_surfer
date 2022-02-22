@@ -1,28 +1,336 @@
-@import "./variables.scss";
+@import "variables.scss";
+@import "mixin.scss";
 
 html {
     font-size: 16px;
-    /* Nombre d'or */
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 body {
-    font-family: "Courier New", Courier, monospace;
-}
-
-/*# sourceMappingURL=style.css.map */
-
-h2 {
-    font-size: 2rem;
-    width: 20%;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
+    background: $bgColor;
+    padding: 0.25rem;
+}
+
+.light {
+    background-color: $white;
+    color: $black;
+}
+
+.dark {
+    background-color: $surfGreen;
+    color: $white;
+}
+
+.shadowed {
+    background-color: $shadowed;
+    color: $black;
+}
+
+header,
+main,
+footer {
+
+    h1,
+    h2,
+    h3 {
+        @include sourceSans();
+        text-transform: uppercase;
+        display: block;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}
+
+header {
+
+    height: 36rem;
+    background: no-repeat url("../images/bg-top.jpg");
+    background-size: cover;
+    background-position: top;
+    font-family: 'Open Sans', sans-serif;
+
+    section {
+        @include flexCenter();
+        flex-direction: column;
+        height: 28rem;
+    }
+
+    h1 {
+        @include openCondensed();
+        font-size: 6.8rem;
+        color: $white;
+        font-weight: 100;
+        padding-bottom: .5rem;
+        border-bottom: .18rem dashed;
+    }
+
+    h3 {
+        @include openCondensed();
+        font-size: 1.67rem;
+        color: $white;
+        font-weight: 100;
+        padding-top: .5rem;
+    }
+
+
+    nav {
+        ul {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 2rem;
+
+            li {
+                padding: 1rem;
+            }
+        }
+
+        a {
+            @include openCondensed();
+            @include aTitled ();
+            font-size: 1.6rem;
+            color: $white;
+            font-weight: bold;
+        }
+    }
 }
 
 main {
-    section {
-        h2 {}
+    display: block;
 
-        &::hover
-        /* équivalent @ $this */
+    section {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+
+    h2,
+    h3 {
+        display: block;
+        @include marginAuto();
+    }
+
+    h2 {
+        display: block;
+        font-size: 3rem;
+        @include marginAuto();
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    >section>p {
+        display: block;
+        max-width: 1200px;
+        @include marginAuto();
+        @include openSans();
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    a {
+        @include aButton ();
+        @include marginAuto();
+    }
+
+    .conteneur-flexbox {
+        display: flex;
+        justify-content: center;
+        height: fit-content;
+        gap: 4rem;
+    }
+
+    .flex {
+        @include flexColumn();
+        justify-content: center;
+        height: fit-content;
+        width: 14rem;
+
+        figure {
+
+            img {
+                border: 1px solid $surfGreen;
+                border-radius: 50%;
+                @include imgAdapt();
+                width: 100%;
+
+            }
+        }
+
+        h5 {
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: bold;
+            padding: 3rem 0;
+        }
+
+        p {
+            display: block;
+            @include openSans();
+            font-size: 1.4rem;
+            text-align: center;
+        }
+    }
+
+    #temoignages {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+
+        img {
+            height: auto;
+            width: calc(100% / 3 * 1);
+            object-fit: cover;
+        }
+
+        aside {
+            width: calc(100% / 3 * 2);
+            padding: 3vw;
+
+            h2 {
+                padding-bottom: 2rem;
+                padding-top: 4rem;
+            }
+
+            blockquote {
+                @include flexColumn();
+                padding: 0 2rem;
+                font-size: 1.4rem;
+                font-style: italic;
+                text-align: center;
+
+
+                :first-child {
+                    align-self: flex-start;
+                    line-height: 0rem;
+                }
+
+                :last-child {
+                    align-self: flex-end;
+                }
+
+                em {
+                    text-align: right;
+                    align-self: flex-end;
+                    font-size: 1.6rem;
+                    padding-top: 1rem;
+                    padding-right: 2rem;
+                }
+
+                span,
+                p,
+                em {
+                    flex-basis: fit-content;
+                }
+
+                span {
+                    font-family: 'Source Sans 3', sans-serif;
+                    font-size: 7rem;
+                }
+
+                p {
+                    @include openSans();
+                    line-height: 1.8rem;
+                    padding: 0 2rem;
+                }
+            }
+        }
+    }
+
+    form {
+        max-width: 600px;
+        @include marginAuto();
+        display: grid;
+        gap: 1.4rem 0.5rem;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 500;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "Nom E-mail"
+            "Message Message"
+            "Submit Submit";
+
+        .name_wrapper {
+            grid-area: Nom;
+        }
+
+        .mail_wrapper {
+            grid-area: E-mail;
+        }
+
+        .message_wrapper {
+            grid-area: Message;
+        }
+
+        button {
+            grid-area: Submit;
+            @include marginAuto();
+            @include aButton();
+        }
+
+        .name_wrapper,
+        .mail_wrapper,
+        .message_wrapper {
+            @include flexColumn();
+        }
+
+        input,
+        label,
+        textarea {
+            border: none;
+            padding: .5rem;
+            font-size: 1.2rem;
+
+        }
+
+    }
+
+
+}
+
+footer {
+    .contact {
+        @include flexCenter;
+        @include marginAuto;
+        max-width: 600px;
+        min-width: fit-content;
+
+        i,
+        a,
+        address {
+            display: inline-block;
+        }
+
+        .tel_wrap,
+        .address_wrap {
+            width: 100%
+        }
     }
 }
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/* @debug $bgColor; */
+
+/* main {FR
+9+
+
+/* &::hover
+/* équivalent @ $this
+/* flex is for only columns or only rows
+/* grid can do both at the same time 
+/* grid-template-columns: repeat(auto-fit minmax(200px, 1fr)); */
+
+/*
+section {
+    @include flexCenter();
+    flex-direction: column;
+    height: 50vh;
+
+}*/
